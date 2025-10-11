@@ -137,6 +137,6 @@ CELERY_QUEUES = {
 }
 
 # Настроечные параметры Stripe 449 стр
-STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')  # Публикуемый ключ
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_API_VERSION = '2022-08-01'
