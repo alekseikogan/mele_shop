@@ -53,6 +53,7 @@ def payment_process(request):
         session = stripe.checkout.Session.create(**session_data)
 
         # перенаправить к платежной форме Stripe
+        # стр 461 с картами для оплаты
         return redirect(session.url, code=303)
 
     else:
