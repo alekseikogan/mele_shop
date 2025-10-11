@@ -20,7 +20,7 @@ def order_create(request):
                                          price=item['price'],
                                          quantity=item['quantity'])
             cart.clear()  # очистить корзину
-            order_created.delay(order.id)  # запустить асинхронное задание
+            order_created.delay(order.id)  # пишет письмо
             request.session['order_id'] = order.id  # сохранить номер заказа
             return redirect(reverse('payment:process'))
     else:
