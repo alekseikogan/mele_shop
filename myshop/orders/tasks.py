@@ -24,14 +24,6 @@ def order_created(order_id):
     return mail_sent
 
 
-@shared_task
-def slow_task():
-    print("Начинаю долгую задачу...")
-    time.sleep(15)  # имитация длительной операции
-    print("Задача завершена!")
-    return "Done"
-
-
 @shared_task(queue='manual_queue')
 def process_number(number):
     print(f"Начинаю обработку числа {number}...")

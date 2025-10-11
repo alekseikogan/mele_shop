@@ -12,3 +12,6 @@ django-debug-toolbar==3.6.0
 redis==4.3.4
 celery
 flower
+stripe
+WeasyPrint
+python-dotenv
