@@ -132,3 +132,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CART_SESSION_ID = 'cart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # 439
+
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+CELERY_RESULT_BACKEND = 'rpc://'
+
+CELERY_QUEUES = {
+    'manual_queue': {
+        'exchange': 'manual_queue',
+        'routing_key': 'manual_queue',
+    },
+}

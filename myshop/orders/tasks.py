@@ -1,3 +1,4 @@
+import time
 from celery import shared_task
 
 from django.core.mail import send_mail
@@ -21,3 +22,19 @@ def order_created(order_id):
                           'admin@yandex.ru',
                           [order.email])
     return mail_sent
+
+
+@shared_task
+def slow_task():
+    print("Начинаю долгую задачу...")
+    time.sleep(15)  # имитация длительной операции
+    print("Задача завершена!")
+    return "Done"
+
+
+@shared_task(queue='manual_queue')
+def process_number(number):
+    print(f"Начинаю обработку числа {number}...")
+    time.sleep(5)  # имитация длительной операции
+    print(f"Число {number} обработано!")
+    return number * 2
