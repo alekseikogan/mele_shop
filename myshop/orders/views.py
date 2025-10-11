@@ -28,3 +28,12 @@ def order_create(request):
         return render(request,
                       'orders/order/create.html',
                       {'cart': cart, 'form': form})
+    
+from easy_thumbnails.files import get_thumbnailer
+from shop.models import Product
+
+product = Product.objects.first()
+thumbnailer = get_thumbnailer(product.image)
+im = thumbnailer.get_thumbnail({'size': (300, 300), 'crop': True})
+print(im.url)
+

@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'easy_thumbnails',
+
     'shop.apps.ShopConfig',  # 389
     'cart.apps.CartConfig',  # 406
     'orders.apps.OrdersConfig',  # 422
@@ -141,3 +144,11 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_API_VERSION = '2022-08-01'
 STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
+
+# Пресеты размеров миниатюр
+THUMBNAIL_ALIASES = {
+    '': {
+        'product_list': {'size': (300, 300), 'crop': True},
+        'product_detail': {'size': (300, 300), 'crop': True},
+    },
+}
