@@ -148,7 +148,7 @@ STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
 # Пресеты размеров миниатюр
 THUMBNAIL_ALIASES = {
     '': {
-        'product_list': {'size': (300, 300), 'crop': True},
-        'product_detail': {'size': (300, 300), 'crop': True},
+        'product_list': {'size': (300, 300), 'crop': True},  # уменьшили в 2 раза
+        'product_detail': {'size': (300, 300), 'crop': True},  # меньше детальная
     },
 }
