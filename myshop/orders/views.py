@@ -7,9 +7,10 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
 
+from orders.tasks import order_created
+
 from .form import OrderCreateForm
 from .models import Order, OrderItem
-from .tasks import order_created
 
 
 def order_create(request):
