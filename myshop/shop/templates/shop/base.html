@@ -10,6 +10,7 @@
   <body>
     <div id="header">
       <a href="/" class="logo">My shop</a>
+      <a href="{% url 'admin:index' %}" class="admin-link">Admin</a>
     </div>
 
     <div id="subheader">
@@ -19,7 +20,7 @@
             Your cart:
             <a href="{% url "cart:cart_detail" %}">
               {{ total_items }} item{{ total_items|pluralize }},
-            {{ cart.get_total_price }} руб
+              {{ cart.get_total_price }} руб
             </a>
           {% elif not order %}
             Your cart is empty.
