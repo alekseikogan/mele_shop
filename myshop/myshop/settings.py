@@ -143,6 +143,11 @@ CELERY_QUEUES = {
         'exchange': 'manual_queue',
         'routing_key': 'manual_queue',
     },
+    'front_rubbish': {
+        'exchange': 'front_rubbish_exchange',
+        'routing_key': 'front_rubbish_rk',
+        'queue_arguments': {'x-max-priority': 8},  # задаём максимальный приоритет
+    },
 }
 
 # Настроечные параметры Stripe 449 стр

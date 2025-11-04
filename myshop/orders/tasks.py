@@ -25,8 +25,16 @@ def order_created(order_id):
 
 
 @shared_task(queue='manual_queue')
-def process_number(number):
+def process_number(number=5):
     print(f"Начинаю обработку числа {number}...")
     time.sleep(5)  # имитация длительной операции
     print(f"Число {number} обработано!")
     return number * 2
+
+
+@shared_task(queue='front_rubbish')
+def what_time_is_it():
+    print(f"Сколько времени??")
+    time.sleep(10)  # имитация длительной операции
+    print(f"Сейчас {time.strftime('%H:%M:%S')}")
+    return time.strftime('%H:%M:%S')
